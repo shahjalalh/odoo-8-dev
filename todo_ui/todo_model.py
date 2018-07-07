@@ -5,8 +5,7 @@ from openerp.exceptions import ValidationError
 
 def referencable_models(self):
     return res_request.referencable_models(
-        self, self.env.cr, self.env.uid, context=self.env.context
-    )
+        self, self.env.cr, self.env.uid, context=self.env.context)
 
 class Tag(models.Model):
     _name = 'todo.task.tag'
@@ -18,7 +17,7 @@ class Tag(models.Model):
     # Hierarchic relations:
     _parent_store = True
     _parent_name = 'parent_id'
-    _parent_id = fields.Many2many(
+    parent_id = fields.Many2one(
         'todo.task.tag', 'Parent Tag', ondelete='restrict'
     )
     parent_left = fields.Integer('Parent Left', index=True)
