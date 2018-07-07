@@ -59,5 +59,20 @@
             </field>
         </record>
 
+        <record id="view_filter_todo_task" model="ir.ui.view">
+            <field name="name">To-do task filter</field>
+            <field name="model">todo.task</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" />
+                    <filter string="Not Done"
+                            domain="[('is_done','=',False)]" />
+                    <filter string="Done"
+                            domain="[('is_done','!=',False)]" />
+                </search>
+            </field>
+
+        </record>
+
     </data>
 </openerp>
